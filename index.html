@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .circle{
+            background-color: red;
+            transition: 1s;
+            display: flex;
+            justify-content: center;
+        }
+        .circle:hover {
+            background-color: green;
+        }
+        .circle:hover .child{
+            transform: translateX(50px);
+        }
+        .child{
+            transition: 1s;
+        }
+        @keyframes circleAnimation {
+            0%{
+                height: 0px;
+                width: 0px;
+            }
+            100%{
+                height:100px;
+                width:100px;
+            }
+        }
+    </style>
+    <script>
+        function drawCirle(e){
+            console.log(e.clientX,e.clientY)
+            let newDiv = document.createElement('div');
+            newDiv.style.height = "100px";
+            newDiv.style.width = "100px";
+            newDiv.style.animation="circleAnimation 1s ease-out 2 alternate 1s forwards"
+            newDiv.style.backgroundColor = "blue";
+            newDiv.style.top= (e.clientY-50)+"px";
+            newDiv.style.left = (e.clientX-50)+ "px";
+            newDiv.style.bottom = (e.clientY +50) +"px";
+            newDiv.style.right = (e.clientX + 50) + "px";
+            newDiv.style.borderRadius="50%"
+            newDiv.style.position="absolute";
+            // newDiv.style.transition="1s";
+            document.body.appendChild(newDiv)
+        }
+        window.addEventListener("click",(e)=>{drawCirle(e)})
+    </script>
+
+</head>
+<body>
+    <div class="circle"> <div class="child">Hello circle</div></div>
+</body>
+</html>
