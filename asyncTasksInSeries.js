@@ -1,12 +1,10 @@
-const asyncSeriesExecuter = async function(callbacks){
+const asyncSeriesExecuter = function(promises){
     // your code goes here...
-    callbacks.reduce((acc,curr)=>{
+    promises.reduce((acc,curr)=>{
         return acc.then(()=>{
-            return curr.then((res)=>{
-                console.log(res)
-            })
-        },Promise.resolve())
-    })
+            return curr.then(res=>{console.log(res)});
+        })
+    },Promise.resolve())
   }
   
   
