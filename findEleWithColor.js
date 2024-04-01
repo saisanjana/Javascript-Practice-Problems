@@ -1,3 +1,17 @@
+function Bike(model, color) {
+    this.model = model;
+    this.color = color;
+    this.say = function(){
+        console.log(this.model)
+    }
+  }
+  let b = new Bike("hey","white")
+  b.say();
+  
+//   Bike.prototype.getDetails = function () {
+//     return this.model + " bike has" + this.color + " color";
+//   };
+
 const findElementByColor = (root, color) => {
     // ... your code goes here
     let result  = []
